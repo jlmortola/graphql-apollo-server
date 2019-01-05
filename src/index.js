@@ -6,8 +6,8 @@ const mongoose = require('mongoose');
 require('dotenv').config()
 const port = 7777;
 
-import typeDefs from './typeDefs';
-import resolvers from './resolvers';
+import typeDefs from '../typeDefs';
+import resolvers from '../resolvers';
 
 
 (async () => {
