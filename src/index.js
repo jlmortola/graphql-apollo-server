@@ -1,14 +1,12 @@
-const { ApolloServer, gql } = require('apollo-server-express');
-
-const express = require('express');
-const app = express();
-const mongoose = require('mongoose');
-require('dotenv').config()
-const port = 7777;
-
 import typeDefs from '../typeDefs';
 import resolvers from '../resolvers';
+import { ApolloServer, gql } from 'apollo-server-express';
+import express from 'express';
+require('dotenv').config()
 
+const app = express();
+const mongoose = require('mongoose');
+const port = 7777;
 
 (async () => {
   try {
