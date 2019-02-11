@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { hash } from 'bcryptjs';
+import { hash, compare } from 'bcryptjs';
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -30,6 +30,10 @@ userSchema.pre('save', async function() {
 });
 
 userSchema.statics.checkRepeated = async option => await User.where(option).countDocuments() === 0; // we add method to check if item is repeated
+
+userSchema.methods.checkPassword =  function (pass) {
+   return compare(pass, this.password);
+};
 
 const User = mongoose.model('User', userSchema);
 
